@@ -1,3 +1,23 @@
+const visualTimer = document.getElementById('visual-timer');
+let seconds = 0;
+let minutes = 0;
+
+  timer = setInterval(function() {
+    seconds++;
+    if (seconds >= 60) {
+      seconds = 0;
+      minutes++;
+    }
+    if (minutes >= 60) {
+        visualTimer.textContent = 'Well, that\'s a lot!';
+      clearInterval(timer);
+    }
+    visualTimer.textContent = minutes + ' : ' + seconds;
+  }, 1000);
+
+
+
+
 /*
  * Create a list that holds all of your cards
  */
