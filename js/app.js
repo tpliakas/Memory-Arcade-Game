@@ -16,7 +16,14 @@ let minutes = 0;
   }, 1000);
 
 
-
+/* Stars Rating */
+if (Try <= 8) {
+  stars = 3;
+} else if (Try > 8 && Try <= 15) {
+  stars = 2;
+} else {
+  stars = 1;
+}
 
 /*
  * Create a list that holds all of your cards
