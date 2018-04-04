@@ -20,7 +20,6 @@ function displayNewCards() {
   cardSymbols = shuffle(cardSymbols);
   
   let entireContainer = document.querySelector('.container');
-  
   const cardsContainer = document.createElement("ul");
   cardsContainer.classList.add('deck');
   
@@ -42,32 +41,32 @@ function displayNewCards() {
 }
 
 
-const visualTimer = document.getElementById('visual-timer');
-let seconds = 0;
-let minutes = 0;
+// const visualTimer = document.getElementById('visual-timer');
+// let seconds = 0;
+// let minutes = 0;
 
-  timer = setInterval(function() {
-    seconds++;
-    if (seconds >= 60) {
-      seconds = 0;
-      minutes++;
-    }
-    if (minutes >= 60) {
-        visualTimer.textContent = 'Well, that\'s a lot!';
-      clearInterval(timer);
-    }
-    visualTimer.textContent = minutes + ' : ' + seconds;
-  }, 1000);
+//   timer = setInterval(function() {
+//     seconds++;
+//     if (seconds >= 60) {
+//       seconds = 0;
+//       minutes++;
+//     }
+//     if (minutes >= 60) {
+//         visualTimer.textContent = 'Well, that\'s a lot!';
+//       clearInterval(timer);
+//     }
+//     visualTimer.textContent = minutes + ' : ' + seconds;
+//   }, 1000);
 
 
-/* Stars Rating */
-if (Try <= 8) {
-  stars = 3;
-} else if (Try > 8 && Try <= 15) {
-  stars = 2;
-} else {
-  stars = 1;
-}
+// /* Stars Rating */
+// if (Try <= 8) {
+//   stars = 3;
+// } else if (Try > 8 && Try <= 15) {
+//   stars = 2;
+// } else {
+//   stars = 1;
+// }
 
 
 
