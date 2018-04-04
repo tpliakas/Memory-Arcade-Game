@@ -5,6 +5,8 @@ let cardSymbols = ["fa-flag", "fa-car", "fa-anchor", "fa-truck", "fa-drop",
     "fa-leaf", "fa-bicycle", "fa-bomb", "fa-flag", "fa-car",
     "fa-anchor", "fa-truck", "fa-drop", "fa-leaf", "fa-bicycle", "fa-bomb"];
 
+displayNewCards();
+
 /******  Shuffle cards and draw board  *******/
 function displayNewCards() {
 
