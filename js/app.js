@@ -1,3 +1,38 @@
+
+
+/******  List of cards  *******/
+let cardSymbols = ["fa-flag", "fa-car", "fa-anchor", "fa-truck", "fa-drop",
+    "fa-leaf", "fa-bicycle", "fa-bomb", "fa-flag", "fa-car",
+    "fa-anchor", "fa-truck", "fa-drop", "fa-leaf", "fa-bicycle", "fa-bomb"];
+
+/******  Shuffle cards and draw board  *******/
+function displayNewCards() {
+
+  cardSymbols = shuffle(cardSymbols);
+  
+  let entireContainer = document.querySelector('.container');
+  
+  const cardsContainer = document.createElement("ul");
+  cardsContainer.classList.add('deck');
+  
+  for (let i = 0; i < cardSymbols.length; i++) {
+    let cardItem = document.createElement("li");
+    cardItem.classList.add("card");
+    cardItem.classList.add("close");
+  
+    let cardContent = document.createElement("li");
+    cardContent.classList.add("fa");
+    cardContent.classList.add(cardSymbols[i]);
+  
+    cardItem.appendChild(cardContent);
+    cardsContainer.appendChild(cardItem);
+   }
+  
+  entireContainer.appendChild(cardsContainer);
+  document.querySelector(".deck").addEventListener('click', cardClick)
+}
+
+
 const visualTimer = document.getElementById('visual-timer');
 let seconds = 0;
 let minutes = 0;
@@ -25,9 +60,6 @@ if (Try <= 8) {
   stars = 1;
 }
 
-/*
- * Create a list that holds all of your cards
- */
 
 
 /*
