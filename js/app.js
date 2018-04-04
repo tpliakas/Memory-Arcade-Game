@@ -1,4 +1,11 @@
-
+let cardsOpened = [];
+let cardsMatched = 0;
+let count = 0;
+let starsRate = 3;
+let gameStarted = false;
+let seconds = 0, minutes = 0, hours = 0;
+const moves = document.querySelector('.moves');
+const timer = document.querySelector('.time');
 
 /******  List of cards  *******/
 let cardSymbols = ["fa-flag", "fa-car", "fa-anchor", "fa-truck", "fa-drop",
