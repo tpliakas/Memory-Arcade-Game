@@ -69,6 +69,15 @@ function setOpenedCardsClasses(classes) {
     });
 }
 
+/******  Card click event and comparison  *******/
+function cardClick(e) {
+    if (e.target.classList.contains('card') && !e.target.classList.contains('match') && !e.target.classList.contains('open')) {
+        gameStarted = true;
+        showSymbol(e.target);
+        checkSymbols();
+    }
+}
+
 // const visualTimer = document.getElementById('visual-timer');
 // let seconds = 0;
 // let minutes = 0;
