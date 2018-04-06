@@ -56,6 +56,12 @@ function shuffle(array) {
     return array;
 }
 
+/******  Open card  *******/
+function showSymbol(openedCard) {
+    openedCard.setAttribute('class', 'card open');
+    openedCards.push(openedCard);
+}
+
 
 // const visualTimer = document.getElementById('visual-timer');
 // let seconds = 0;
