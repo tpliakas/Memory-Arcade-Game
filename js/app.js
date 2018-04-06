@@ -57,14 +57,14 @@ function shuffle(array) {
 }
 
 /******  Open card  *******/
-function showSymbol(openedCard) {
-    openedCard.setAttribute('class', 'card open');
-    openedCards.push(openedCard);
+function showSymbol(cardsOpened) {
+    cardsOpened.setAttribute('class', 'card open');
+    cardsOpened.push(cardsOpened);
 }
 
 /******  Add classes to card  *******/
 function setOpenedCardsClasses(classes) {
-    openedCards.forEach(function (card) {
+    cardsOpened.forEach(function (card) {
         card.setAttribute('class', classes);
     });
 }
