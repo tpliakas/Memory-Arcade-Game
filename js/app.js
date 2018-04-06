@@ -62,6 +62,12 @@ function showSymbol(openedCard) {
     openedCards.push(openedCard);
 }
 
+/******  Add classes to card  *******/
+function setOpenedCardsClasses(classes) {
+    openedCards.forEach(function (card) {
+        card.setAttribute('class', classes);
+    });
+}
 
 // const visualTimer = document.getElementById('visual-timer');
 // let seconds = 0;
