@@ -78,22 +78,25 @@ function cardClick(e) {
     }
 }
 
-// const visualTimer = document.getElementById('visual-timer');
-// let seconds = 0;
-// let minutes = 0;
+/******  Timer  *******/
+function addTime() {
+    seconds++;
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes >= 60) {
+            minutes = 0;
+            hours++;
+        }
+    }
+}
 
-//   timer = setInterval(function() {
-//     seconds++;
-//     if (seconds >= 60) {
-//       seconds = 0;
-//       minutes++;
-//     }
-//     if (minutes >= 60) {
-//         visualTimer.textContent = 'Well, that\'s a lot!';
-//       clearInterval(timer);
-//     }
-//     visualTimer.textContent = minutes + ' : ' + seconds;
-//   }, 1000);
+setInterval(function () {
+    if (gameStarted) {
+        addTime()
+        timer.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+    }
+}, 1000);
 
 
 // /* Stars Rating */
