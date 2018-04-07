@@ -132,14 +132,24 @@ function shuffle(array) {
     return array;
 }
 
+/******  Reset  *******/
+document.querySelector('.restart').addEventListener('click', function () {
+    resetResults();
+    document.querySelector(".deck").remove();
+    displayNewCards();
 
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+    Array.from(document.querySelectorAll(".stars .fa")).forEach(function (c) {
+        c.setAttribute('class', 'fa fa-star');
+    });
+
+});
+
+function resetResults() {
+    gameStarted = false;
+    seconds = 0, minutes = 0, hours = 0;
+    movesCount = 0;
+    timeEl.textContent = '00:00:00'
+    moves.textContent = '0 Moves';
+    starsRate = 3;
+    openedCards = [];
+}
