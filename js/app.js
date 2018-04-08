@@ -69,6 +69,54 @@ function setOpenedCardsClasses(classes) {
     });
 }
 
+/******  Basic game function  *******/
+function checkSymbols() {
+    if (cardsOpened.length === 2) {
+
+        let starsItems = document.querySelectorAll(".stars .fa");
+        moves.textContent = ++count + ' Moves';
+
+        // Set the rate based on the moves count.
+        switch (count) {
+            case 6:
+                starsItems[2].setAttribute('class', 'fa fa-star-o');
+                starsRate--;
+                break;
+            case 12:
+                starsItems[1].setAttribute('class', 'fa fa-star-o');
+                starsRate--;
+                break;
+        }
+
+        // prevent other cards to be clickable
+        document.querySelector(".deck").removeEventListener('click', cardClick)
+        setTimeout(function () {
+            cardsOpened = [];
+            document.querySelector(".deck").addEventListener('click', cardClick)
+        }, 700);
+
+        // Compare the symbols and apply the result
+        if (cardsOpened[0].firstChild.classList[1] === cardsOpened[1].firstChild.classList[1]) {
+            setOpenedCardsClasses('card match');
+
+            matchedCards++;
+            if (matchedCards === cardSymbols.length / 2) {
+                document.querySelector(".result").classList.toggle('show');
+                document.querySelector(".rate-result").textContent = starsRate;
+                document.querySelector(".time-result").textContent = timer.textContent;
+                document.querySelector(".moves-result").textContent = count;
+                gameStarted = false;
+            }
+
+        } else {
+            setOpenedCardsClasses('card mismatch');
+            setTimeout(function () {
+                setOpenedCardsClasses('card close')
+            }, 500);
+        }
+    }
+}
+
 /******  Card click event and comparison  *******/
 function cardClick(e) {
     if (e.target.classList.contains('card') && !e.target.classList.contains('match') && !e.target.classList.contains('open')) {
@@ -98,41 +146,6 @@ setInterval(function () {
     }
 }, 1000);
 
-
-// /* Stars Rating */
-// if (Try <= 8) {
-//   stars = 3;
-// } else if (Try > 8 && Try <= 15) {
-//   stars = 2;
-// } else {
-//   stars = 1;
-// }
-
-
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
-
-/******  Reset  *******/
 document.querySelector('.restart').addEventListener('click', function () {
     resetResults();
     document.querySelector(".deck").remove();
@@ -144,11 +157,22 @@ document.querySelector('.restart').addEventListener('click', function () {
 
 });
 
+/******  Reset  *******/
 function resetResults() {
     gameStarted = false;
     seconds = 0, minutes = 0, hours = 0;
-    movesCount = 0;
-    timeEl.textContent = '00:00:00'
+    count = 0;
+    timer.textContent = '00:00:00'
+    moves.textContent = '0 Moves';
+    starsRate = 3;
+    cardsOpened = [];
+}
+
+function resetResults() {
+    gameStarted = false;
+    seconds = 0, minutes = 0, hours = 0;
+    count = 0;
+    timer.textContent = '00:00:00'
     moves.textContent = '0 Moves';
     starsRate = 3;
     openedCards = [];
