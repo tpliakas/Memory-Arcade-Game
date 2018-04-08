@@ -9,3 +9,6 @@ Classic arcade memory game with cards.
 
 
 Good luck!
+
+
+Play live [here](https://tpliakas.github.io/Memory-Arcade-Game/).
