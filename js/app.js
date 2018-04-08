@@ -8,9 +8,9 @@ const moves = document.querySelector('.moves');
 const timer = document.querySelector('.time');
 
 /******  List of cards  *******/
-let cardSymbols = ["fa-flag", "fa-car", "fa-anchor", "fa-truck", "fa-drop",
+let cardSymbols = ["fa-flag", "fa-car", "fa-anchor", "fa-truck", "fa-tint",
     "fa-leaf", "fa-bicycle", "fa-bomb", "fa-flag", "fa-car",
-    "fa-anchor", "fa-truck", "fa-drop", "fa-leaf", "fa-bicycle", "fa-bomb"];
+    "fa-anchor", "fa-truck", "fa-tint", "fa-leaf", "fa-bicycle", "fa-bomb"];
 
 displayNewCards();
 
@@ -57,9 +57,9 @@ function shuffle(array) {
 }
 
 /******  Open card  *******/
-function showSymbol(cardsOpened) {
-    cardsOpened.setAttribute('class', 'card open');
-    cardsOpened.push(cardsOpened);
+function showSymbol(cardOpened) {
+    cardOpened.setAttribute('class', 'card open');
+    cardsOpened.push(cardOpened);
 }
 
 /******  Add classes to card  *******/
@@ -99,8 +99,8 @@ function checkSymbols() {
         if (cardsOpened[0].firstChild.classList[1] === cardsOpened[1].firstChild.classList[1]) {
             setOpenedCardsClasses('card match');
 
-            matchedCards++;
-            if (matchedCards === cardSymbols.length / 2) {
+            cardsMatched++;
+            if (cardsMatched === cardSymbols.length / 2) {
                 document.querySelector(".result").classList.toggle('show');
                 document.querySelector(".rate-result").textContent = starsRate;
                 document.querySelector(".time-result").textContent = timer.textContent;
